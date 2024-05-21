@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.HanfuzhishiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.HanfuzhishiEntity" id="hanfuzhishiMap">
+        <result property="wenzhangbiaoti" column="wenzhangbiaoti"/>
+        <result property="fengmiantupian" column="fengmiantupian"/>
+        <result property="fabushijian" column="fabushijian"/>
+        <result property="wenzhangneirong" column="wenzhangneirong"/>
+        <result property="faburen" column="faburen"/>
+        <result property="clicktime" column="clicktime"/>
+        <result property="clicknum" column="clicknum"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.HanfuzhishiVO" >
+		SELECT * FROM hanfuzhishi  hanfuzhishi         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.HanfuzhishiVO" >
+		SELECT  hanfuzhishi.* FROM hanfuzhishi  hanfuzhishi
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.HanfuzhishiView" >
+
+		SELECT  hanfuzhishi.* FROM hanfuzhishi  hanfuzhishi 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.HanfuzhishiView" >
+		SELECT * FROM hanfuzhishi  hanfuzhishi <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	
+</mapper>
